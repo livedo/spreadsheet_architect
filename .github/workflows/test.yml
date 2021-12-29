@@ -19,6 +19,7 @@ jobs:
           - ruby: 2.6
           - ruby: 2.7
           - ruby: 3.0
+          - ruby: 3.1
 
           ### CAXLSX VERSION TESTING
           - ruby: 2.6
@@ -39,7 +40,7 @@ jobs:
             gemfile: gemfiles/rails_6.0.sqlite3.gemfile
           - ruby: 2.6
             gemfile: gemfiles/rails_6.1.sqlite3.gemfile
-          - ruby: 2.6
+          - ruby: 3.1
             gemfile: gemfiles/rails_7.0.sqlite3.gemfile
 
     env:
@@ -55,10 +56,9 @@ jobs:
 
     - name: Bundle
       run: |
-        gem install bundler:1.17.3
-        bundle _1.17.3_ install
+        gem install bundler
+        bundle install
 
     - name: Run tests
       run: |
-        #bundle exec rake db:test:prepare
         bundle exec rake
